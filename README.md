@@ -7,3 +7,9 @@ Custom UIView for creating rounded corners any one of topLeft, topRight, bottomL
 2. Add an UIView to your ViewController
 3. Change Custom Class in Identity Inspector to RoundedCornerView
 4. Go to Attribute Inspector pick Corner Radius (CGFloat) and On the corners you want rounded.
+
+
+
+
+![alt text](https://github.com/kazimunshimun/RoundedCornerView/blob/master/last.png)
+
