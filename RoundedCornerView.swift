@@ -28,15 +28,7 @@ class RoundedCornerView: UIView {
             return corners.contains(.topLeft)
         }
         set {
-            if newValue {
-                corners.insert(.topLeft)
-                updateCorners()
-            } else {
-                if corners.contains(.topLeft) {
-                    corners.remove(.topLeft)
-                    updateCorners()
-                }
-            }
+            setCorner(newValue: newValue, for: .topLeft)
         }
     }
     
@@ -45,16 +37,7 @@ class RoundedCornerView: UIView {
             return corners.contains(.topRight)
         }
         set {
-            if newValue {
-                corners.insert(.topRight)
-                updateCorners()
-            } else {
-                if corners.contains(.topRight) {
-                    corners.remove(.topRight)
-                    updateCorners()
-                }
-            }
-            
+            setCorner(newValue: newValue, for: .topRight)
         }
     }
     
@@ -63,16 +46,7 @@ class RoundedCornerView: UIView {
             return corners.contains(.bottomLeft)
         }
         set {
-            if newValue {
-                corners.insert(.bottomLeft)
-                updateCorners()
-            } else {
-                if corners.contains(.bottomLeft) {
-                    corners.remove(.bottomLeft)
-                    updateCorners()
-                }
-            }
-            
+            setCorner(newValue: newValue, for: .bottomLeft)
         }
     }
     
@@ -81,16 +55,27 @@ class RoundedCornerView: UIView {
             return corners.contains(.bottomRight)
         }
         set {
-            if newValue {
-                corners.insert(.bottomRight)
-                updateCorners()
-            } else {
-                if corners.contains(.bottomRight) {
-                    corners.remove(.bottomRight)
-                    updateCorners()
-                }
-            }
-            
+            setCorner(newValue: newValue, for: .bottomRight)
+        }
+    }
+    
+    func setCorner(newValue: Bool, for corner: UIRectCorner) {
+        if newValue {
+            addRectCorner(corner: corner)
+        } else {
+            removeRectCorner(corner: corner)
+        }
+    }
+    
+    func addRectCorner(corner: UIRectCorner) {
+        corners.insert(corner)
+        updateCorners()
+    }
+    
+    func removeRectCorner(corner: UIRectCorner) {
+        if corners.contains(corner) {
+            corners.remove(corner)
+            updateCorners()
         }
     }
     
